@@ -2,18 +2,21 @@
 
 This mod adds photo-based treasure hunting to the game.
 
-It's inspired by Hunterz's Treasure mod, but I needed more functionality for my server so I created my own version from scratch and the features of my mod are a bit different.
+It's inspired by Hunterz's [url=https://steamcommunity.com/workshop/filedetails/?id=1982919196]Treasure mod[/url], but I needed more functionality for my server so I created my own version from scratch and the features of my mod are a bit different.
 
-The main differences are:
+Check out the [url=https://www.youtube.com/watch?v=MaGxDq25pxA&ab_channel=Zenarchist]YouTube video[/url] attached above to see how it works.
+
+The main differences with my mod compared to the original treasure mod are:
 
 - When a player "reads" a photo, it creates a trigger to spawn the stash when the player goes near it instead of instantly spawning the stash. This prevents people "farming" photo stash locations without having found the corresponding photo first
 - The stash's loot configs are chosen at random each time (so finding the same photo twice will produce two entirely different loot contents)
 - New photo textures are much easier to add (everything is hidden-selected, so adding a new photo texture is automatic and based on the photo number in the .cpp file)
-- This mod includes a "random photo" item which automatically turns into a random photo, making it easy to add random photos as airdrop loot etc
+- This mod includes a "random photo" item which automatically turns into a random photo from the list, making it easy to add random photos as airdrop loot etc (photo list is auto-generated from .cpp file)
+- The containers which spawn the loot inside cannot be picked up or put into cargo
 
 Adding loot config is easy to do, just modify the ZenTreasureConfig.json file in your server profiles folder (the mod comes with an example JSON config setup for Livonia).
 
-Note: my mod currently only includes photos for Livonia. To set up photos for a different mod this will need to be done manually - there is a video guide on how to do that here: https://youtu.be/MaGxDq25pxA
+Note: my mod currently only includes photos for Livonia. To set up photos for a different map this will need to be done manually - there is a video guide on how to do that here: https://youtu.be/MaGxDq25pxA
 
 [h1]Installation Instructions:[/h1]
 

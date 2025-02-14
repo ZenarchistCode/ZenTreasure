@@ -1,0 +1,10 @@
+name = "Zenarchist's Treasure Mod"; // name
+picture = ""; // picture in expanded description
+logoSmall = ""; // icon next to mod name when description is not expanded
+logo = ""; // logo below game menu
+logoOver = ""; // on mouse hover over logo
+tooltip = "Zenarchist's Treasure Mod"; // tool tip on mouse hover
+overview = "A treasure hunting mod."; // overview
+action = "https://zenarchist.io/"; // link
+author = "Zenarchist"; // author
+version = "1.0"; // version

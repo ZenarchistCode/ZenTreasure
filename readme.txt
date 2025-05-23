@@ -16,7 +16,7 @@ The main differences with my mod compared to the original treasure mod are:
 
 Adding loot config is easy to do, just modify the ZenTreasureConfig.json file in your server profiles folder (the mod comes with an example JSON config setup for Livonia).
 
-Note: my mod currently only includes photos for Livonia. To set up photos for a different map this will need to be done manually - there is a video guide on how to do that here: https://youtu.be/MaGxDq25pxA
+Note: my mod currently only includes photos for the vanilla maps. To set up photos for a different map this will need to be done manually - there is a video guide on how to do that here: https://youtu.be/MaGxDq25pxA
 
 [h1]Installation Instructions:[/h1]
 

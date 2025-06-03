@@ -1,7 +1,7 @@
 class ZenTreasure_PhotoBase extends ItemBase
 {
-	int m_StashType = -1;
-	vector m_StashPosition;
+	protected int m_StashType = -1;
+	protected vector m_StashPosition;
 
 	// Called when Central Economy engine spawns this item into the world as loot
 	override void EEOnCECreate()
@@ -188,4 +188,4 @@ class ZenTreasure_PhotoBase extends ItemBase
 		GetZenTreasure_Triggers().SpawnTrigger(GetZenTreasureConfig_SpawnTriggers().AddTreasureTrigger(m_StashPosition, player.GetCachedID(), m_StashType), player);
 		Print("[ZenTreasure] " + player.GetCachedID() + " spawned treasure stash TRIGGER @ " + m_StashPosition + " with config " + treasureConfig.ConfigName);
 	}
-};
+}

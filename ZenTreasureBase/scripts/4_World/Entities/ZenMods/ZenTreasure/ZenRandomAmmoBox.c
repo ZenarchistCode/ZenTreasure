@@ -1,39 +1,43 @@
 class ZenRandomAmmoBox : Box_Base
 {
-	static const ref array<string> AMMO_BOXES = 
+	array<string> GetAmmoBoxes()
 	{
-		"AmmoBox_556x45_20Rnd",
-		"AmmoBox_556x45Tracer_20Rnd",
-		"AmmoBox_308Win_20Rnd",
-		"AmmoBox_762x54_20Rnd",
-		"AmmoBox_762x54Tracer_20Rnd",
-		"AmmoBox_762x39_20Rnd",
-		"AmmoBox_762x39Tracer_20Rnd",
-		"AmmoBox_22_50Rnd",
-		"AmmoBox_357_20Rnd",
-		"AmmoBox_45ACP_25rnd",
-		"AmmoBox_9x19_25rnd",
-		"AmmoBox_380_35rnd",
-		"AmmoBox_00buck_10rnd",
-		"AmmoBox_12gaSlug_10Rnd",
-		"AmmoBox_545x39_20Rnd",
-		"AmmoBox_9x39_20Rnd",
-		"AmmoBox_Expansion_46x30_25rnd",
-		"AmmoBox_Expansion_338_15rnd",
-		"Expansion_AmmoBox_8mm_15rnd"
-	};
+		array<string> ammoBoxes = new array<string>;
+
+		ammoBoxes.Insert("AmmoBox_00buck_10rnd");
+		ammoBoxes.Insert("AmmoBox_12gaSlug_10Rnd");
+		ammoBoxes.Insert("AmmoBox_22_50Rnd");
+		ammoBoxes.Insert("AmmoBox_308Win_20Rnd");
+		ammoBoxes.Insert("AmmoBox_308WinTracer_20Rnd");
+		ammoBoxes.Insert("AmmoBox_357_20Rnd");
+		ammoBoxes.Insert("AmmoBox_380_35rnd");
+		ammoBoxes.Insert("AmmoBox_45ACP_25rnd");
+		ammoBoxes.Insert("AmmoBox_545x39_20Rnd");
+		ammoBoxes.Insert("AmmoBox_545x39Tracer_20Rnd");
+		ammoBoxes.Insert("AmmoBox_556x45_20Rnd");
+		ammoBoxes.Insert("AmmoBox_556x45Tracer_20Rnd");
+		ammoBoxes.Insert("AmmoBox_762x39_20Rnd");
+		ammoBoxes.Insert("AmmoBox_762x39Tracer_20Rnd");
+		ammoBoxes.Insert("AmmoBox_762x54_20Rnd");
+		ammoBoxes.Insert("AmmoBox_762x54Tracer_20Rnd");
+		ammoBoxes.Insert("AmmoBox_9x19_25rnd");
+		ammoBoxes.Insert("AmmoBox_9x39_20Rnd");
+		ammoBoxes.Insert("AmmoBox_9x39AP_20Rnd");
+
+		return ammoBoxes;
+	}
 
 	override void EOnInit(IEntity other, int extra)
 	{
 		super.EOnInit(other, extra);
 
 		if (GetGame().IsDedicatedServer())
-			GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ShapeshifterMorph, 1000, false);
+			GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ShapeshifterMorph, Math.RandomFloatInclusive(900, 1000), false);
 	}
 
 	private void ShapeshifterMorph()
 	{
-		GetInventory().ReplaceItemWithNew(InventoryMode.SERVER, new ReplaceItemWithNewLambda(this, AMMO_BOXES.GetRandomElement(), NULL));
+		GetInventory().ReplaceItemWithNew(InventoryMode.SERVER, new ReplaceItemWithNewLambda(this, GetAmmoBoxes().GetRandomElement(), NULL));
 	}
 }
 
@@ -44,4 +48,4 @@ class ReplaceRandomAmmoLambda : ReplaceItemWithNewLambdaBase
 		m_OldItem = old_item;
 		m_NewItemType = new_item_type;
 	}
-};
+}

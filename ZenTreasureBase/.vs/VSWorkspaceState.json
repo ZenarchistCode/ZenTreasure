@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\scripts",
+    "\\scripts\\4_World",
+    "\\scripts\\4_World\\Classes",
+    "\\scripts\\4_World\\Classes\\UserActionsComponent",
+    "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods",
+    "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions",
+    "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure",
+    "\\scripts\\5_Mission",
+    "\\scripts\\5_Mission\\#VanillaOverrides",
+    "\\scripts\\5_Mission\\#VanillaOverrides\\Mission"
+  ],
+  "SelectedNode": "\\scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_PhotoBase.c",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,6 +1,6 @@
 class ZenTreasure_PhotoBase extends ItemBase
 {
-	protected int m_StashType = -1;
+	protected int m_ZenStashType = -1;
 	protected vector m_StashPosition;
 
 	// Called when Central Economy engine spawns this item into the world as loot
@@ -16,13 +16,13 @@ class ZenTreasure_PhotoBase extends ItemBase
 
 	void ZenTreasure_PhotoBase()
 	{
-		RegisterNetSyncVariableInt("m_StashType");
+		RegisterNetSyncVariableInt("m_ZenStashType");
 
 		// Get photo number for texture purposes (remove 'ZenTreasure_Photo' to get number text only)
 		string className = GetType();
 		string substringNumber = className.Substring(17, className.Length() - 17);
 		int photoNumber = substringNumber.ToInt();
-		if (photoNumber <= 9)
+		if (photoNumber < 10)
 			substringNumber = "0" + photoNumber.ToString();
 		else
 			substringNumber = photoNumber.ToString();
@@ -51,14 +51,14 @@ class ZenTreasure_PhotoBase extends ItemBase
 
 	void AssignRandomStashType()
 	{
-		if (m_StashType != -1)
+		if (m_ZenStashType != -1)
 			return;
 
 		// Assign a random loot type to this photo
 		if (GetZenTreasureConfig().DebugAlwaysSpawnStashID == -1)
-			m_StashType = Math.RandomIntInclusive(0, GetZenTreasureConfig().TreasureTypes.Count() - 1);
+			m_ZenStashType = Math.RandomIntInclusive(0, GetZenTreasureConfig().TreasureTypes.Count() - 1);
 		else 
-			m_StashType = GetZenTreasureConfig().DebugAlwaysSpawnStashID;
+			m_ZenStashType = GetZenTreasureConfig().DebugAlwaysSpawnStashID;
 
 		SetSynchDirty();
 	}
@@ -83,7 +83,7 @@ class ZenTreasure_PhotoBase extends ItemBase
 		if (SpawnedStash())
 		{
 			cfgPath = "CfgVehicles " + GetType();
-			treasureTypeText = ZenTreasureConfig.TreasureDescriptions.Get(m_StashType);
+			treasureTypeText = ZenTreasureConfig.TreasureDescriptions.Get(m_ZenStashType);
 		}
 
 		GetGame().ConfigGetText(cfgPath + " descriptionShort", output);
@@ -111,18 +111,18 @@ class ZenTreasure_PhotoBase extends ItemBase
 
 	int GetStashType()
 	{
-		return m_StashType;
+		return m_ZenStashType;
 	}
 
 	void SetStashType(int type)
 	{
-		m_StashType = type;
+		m_ZenStashType = type;
 		SetSynchDirty();
 	}
 
 	bool SpawnedStash()
 	{
-		return m_StashType != -1;
+		return m_ZenStashType != -1;
 	}
 
 	void SpawnStash(PlayerBase player)
@@ -151,7 +151,7 @@ class ZenTreasure_PhotoBase extends ItemBase
 		if (!super.OnStoreLoad(ctx, version))
 			return false;
 
-		if (!ctx.Read(m_StashType))
+		if (!ctx.Read(m_ZenStashType))
 			return false;
 
 		return true;
@@ -161,7 +161,7 @@ class ZenTreasure_PhotoBase extends ItemBase
 	{
 		super.OnStoreSave(ctx);
 
-		ctx.Write(m_StashType);
+		ctx.Write(m_ZenStashType);
 	}
 
 	void PhotoDebugPrint(string msg)
@@ -178,14 +178,32 @@ class ZenTreasure_PhotoBase extends ItemBase
 			return;
 		}
 
-		ZenTreasureStashType treasureConfig = GetZenTreasureConfig().TreasureTypes.Get(m_StashType);
+		ZenTreasureStashType treasureConfig = GetZenTreasureConfig().TreasureTypes.Get(m_ZenStashType);
 		if (!treasureConfig)
 		{
-			Error("[ZenTreasure] Could not spawn treasure loot trigger - config not found for m_StashType=" + m_StashType);
+			Error("[ZenTreasure] Could not spawn treasure loot trigger - config not found for m_ZenStashType=" + m_ZenStashType);
 			return;
 		}
 
-		GetZenTreasure_Triggers().SpawnTrigger(GetZenTreasureConfig_SpawnTriggers().AddTreasureTrigger(m_StashPosition, player.GetCachedID(), m_StashType), player);
+		GetZenTreasure_Triggers().SpawnTrigger(GetZenTreasureConfig_SpawnTriggers().AddTreasureTrigger(m_StashPosition, player.GetCachedID(), m_ZenStashType), player);
 		Print("[ZenTreasure] " + player.GetCachedID() + " spawned treasure stash TRIGGER @ " + m_StashPosition + " with config " + treasureConfig.ConfigName);
 	}
+
+	#ifdef MAPLINK
+	override void OnUApiSave(UApiEntityStore data)
+	{
+		super.OnUApiSave(data);
+
+		data.Write("m_ZenStashType", GetStashType());
+		Print("[ZenTreasure_PhotoBase::MapLink] Saving photo - stash ID: " + GetStashType());
+	}
+	
+	override void OnUApiLoad(UApiEntityStore data)
+	{
+		super.OnUApiLoad(data);
+		
+		SetStashType(data.GetInt("m_ZenStashType"));
+		Print("[ZenTreasure_PhotoBase::MapLink] Loaded photo - stash ID: " + GetStashType());
+	}
+	#endif
 }

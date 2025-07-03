@@ -15,7 +15,7 @@ class ZenTreasure_RandomPhoto extends ZenTreasure_PhotoBase
 		string spawnType = "ZenTreasure_Photo";
 
 		int rand = Math.RandomIntInclusive(1, PHOTO_COUNT);
-		if (rand <= 9)
+		if (rand < 10)
 		{
 			spawnType = spawnType + "0" + rand.ToString();
 		}

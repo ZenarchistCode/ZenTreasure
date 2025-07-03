@@ -4,12 +4,11 @@ modded class MissionBase
 	void MissionBase()
 	{
 		#ifndef SERVER
-		//! TREASURE 
+		//! TREASURE CLIENT
 		GetRPCManager().AddRPC("ZenMod_RPC", "RPC_ReceiveZenTreasureTextClient", this, SingeplayerExecutionType.Client);
 		GetRPCManager().AddRPC("ZenMod_RPC", "RPC_ReceiveZenTreasurePhotoReadClient", this, SingeplayerExecutionType.Client);
-        #endif
-
-		//! TREASURE 
+        #else
+		//! TREASURE SERVER
 		// Load how many photos exist for RandomPhoto spawner
 		for (int i = 0; i < GetGame().ConfigGetChildrenCount("CfgVehicles"); i++)
 		{
@@ -20,6 +19,7 @@ modded class MissionBase
 		}
 
 		Print("[ZenTreasure] Loaded " + ZenTreasure_RandomPhoto.PHOTO_COUNT + " random photo types.");
+		#endif
 	}
 
 	//! TREASURE 

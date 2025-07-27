@@ -54,9 +54,12 @@ modded class MissionBase
 		if (!photo)
 			return;
 
-		if (data.param2 != -1) // First time reading if this is -1
+		if (data.param2 != -1)
+		{
+			photo.SetZenCanRead(true);
 			photo.SetStashType(data.param2);
-		
+		}
+
 		ZenOpenPhotoInspect(photo);
     }
 

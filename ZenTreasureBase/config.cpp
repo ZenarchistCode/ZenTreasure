@@ -132,6 +132,14 @@ class CfgVehicles
 		treasure_stash_x = -1.0;
 		treasure_stash_z = -1.0;
 		mapName = "missing";
+		inventorySlot[] += // ZenModPack Journal slots
+		{
+			"ZenJournal_Paper1",
+			"ZenJournal_Paper2",
+			"ZenJournal_Paper3",
+			"ZenJournal_Paper4",
+			"ZenJournal_Paper5"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth

@@ -8,10 +8,13 @@
     "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods",
     "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions",
     "\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure",
+    "\\scripts\\4_World\\Entities",
+    "\\scripts\\4_World\\Entities\\ZenMods",
+    "\\scripts\\4_World\\Entities\\ZenMods\\ZenTreasure",
     "\\scripts\\5_Mission",
     "\\scripts\\5_Mission\\#VanillaOverrides",
     "\\scripts\\5_Mission\\#VanillaOverrides\\Mission"
   ],
-  "SelectedNode": "\\scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_PhotoBase.c",
+  "SelectedNode": "\\config.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -15,8 +15,8 @@ class ZenTreasureConfig
 	int TreasurePersistenceSecs = 3600; // 1 hour, after player enters trigger & spawns stash.
 	bool IsWinterMap = false;
 	float SpawnPhotosOnZombiesChance = 0.01;
-	int PhotoSpawnStartNumber = 0;
-	int PhotoSpawnStopNumber = 0;
+	ref array<int> SkipSpawnableRandomPhotosID = new array<int>;
+	ref array<string> SkipSpawnableRandomPhotosMap = new array<string>;
 	static ref array<string>					TreasureDescriptions	= new array<string>;
 	ref array<ref ZenTreasurePredefinedType>	PredefinedTypes			= new array<ref ZenTreasurePredefinedType>;
 	ref array<ref ZenTreasureStashType>			TreasureTypes			= new array<ref ZenTreasureStashType>;
@@ -52,6 +52,10 @@ class ZenTreasureConfig
 
 	void SetupDefaultConfig()
 	{
+		SkipSpawnableRandomPhotosID.Insert(-1);
+		SkipSpawnableRandomPhotosMap.Insert("mapName");
+		int i;
+
 		// Prepare predefined loot types 
 		// SVD
 		ZenTreasureLootSpawn predef_SVD = new ZenTreasureLootSpawn("SVD|SVD_Wooden", 1, 1);
@@ -92,7 +96,7 @@ class ZenTreasureConfig
 		PredefinedTypes.Insert(new ZenTreasurePredefinedType("Predef_Winchester", predef_Winchester));
 		// AmmoBox 
 		ZenTreasureLootSpawn predef_AmmoBox = new ZenTreasureLootSpawn("AmmoBox", 1, 1);
-		for (int i = 0; i < 40; i++)
+		for (i = 0; i < 40; i++)
 		{
 			predef_AmmoBox.Attachments.Insert("ZenRandomAmmoBox");
 		}

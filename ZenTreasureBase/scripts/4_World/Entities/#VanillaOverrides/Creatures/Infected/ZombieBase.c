@@ -37,18 +37,6 @@ modded class ZombieBase extends DayZInfected
 		}
 
 		string photoType = "ZenTreasure_RandomPhoto";
-
-		if (GetZenTreasureConfig().PhotoSpawnStartNumber != 0 && GetZenTreasureConfig().PhotoSpawnStopNumber != 0)
-		{
-			string id = "";
-			int photoID = Math.RandomIntInclusive(GetZenTreasureConfig().PhotoSpawnStartNumber, GetZenTreasureConfig().PhotoSpawnStopNumber);
-			id = photoID.ToString();
-			if (photoID <= 9)
-				id = "0" + id;
-
-			photoType = "ZenTreasure_Photo" + id;
-		}
-
 		ZenTreasure_PhotoBase photo = ZenTreasure_PhotoBase.Cast(GetInventory().CreateInInventory(photoType));
 		if (!photo)
 		{

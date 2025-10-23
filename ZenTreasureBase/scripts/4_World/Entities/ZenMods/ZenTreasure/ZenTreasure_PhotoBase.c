@@ -278,7 +278,7 @@ class ZenTreasure_PhotoBase extends ItemBase
 
 		data.Write("m_ZenStashType", GetStashType());
 		data.Write("m_StashCreatorID", GetStashCreatorID());
-		Print("[ZenTreasure_PhotoBase::MapLink] Saving photo - stash ID: " + GetStashType());
+		//Print("[ZenTreasure_PhotoBase::MapLink] Saving photo - stash ID: " + GetStashType());
 	}
 	
 	override void OnUApiLoad(UApiEntityStore data)
@@ -286,7 +286,7 @@ class ZenTreasure_PhotoBase extends ItemBase
 		super.OnUApiLoad(data);
 		
 		SetStashType(data.GetInt("m_ZenStashType"));
-		Print("[ZenTreasure_PhotoBase::MapLink] Loaded photo - stash ID: " + GetStashType());
+		//Print("[ZenTreasure_PhotoBase::MapLink] Loaded photo - stash ID: " + GetStashType());
 	}
 	#endif
 }

@@ -9,16 +9,47 @@ modded class MissionBase
 		GetRPCManager().AddRPC("ZenMod_RPC", "RPC_ReceiveZenTreasurePhotoReadClient", this, SingeplayerExecutionType.Client);
         #else
 		//! TREASURE SERVER
+		Print("[ZenTreasure] Loading random photo types:");
+
+		string cfg_name;
+		string map_name;
+		int photoID = 0;
+
 		// Load how many photos exist for RandomPhoto spawner
 		for (int i = 0; i < GetGame().ConfigGetChildrenCount("CfgVehicles"); i++)
 		{
-			string cfg_name = "";
 			GetGame().ConfigGetChildName("CfgVehicles", i, cfg_name);
 			if (cfg_name.Contains("ZenTreasure_Photo") && !cfg_name.Contains("Base"))
-				ZenTreasure_RandomPhoto.PHOTO_COUNT++;
+			{
+				photoID++;
+				//Print("[ZenTreasure] Valid photo detected: " + cfg_name + " / ID=" + photoID);
+
+				if (GetGame().ConfigIsExisting("CfgVehicles " + cfg_name + " mapName"))
+				{
+					GetGame().ConfigGetText("CfgVehicles " + cfg_name + " mapName", map_name);
+				}
+				else 
+				{
+					map_name = "";
+				}
+
+				if (GetZenTreasureConfig().SkipSpawnableRandomPhotosID && GetZenTreasureConfig().SkipSpawnableRandomPhotosID.Find(photoID) != -1)
+				{
+					Print("[ZenTreasure] SKIPPING PHOTO ID: " + photoID);
+					continue;
+				}
+
+				if (GetZenTreasureConfig().SkipSpawnableRandomPhotosMap && GetZenTreasureConfig().SkipSpawnableRandomPhotosMap.Find(map_name) != -1)
+				{
+					Print("[ZenTreasure] SKIPPING PHOTO ID: " + photoID + " (Map=" + map_name + ")");
+					continue;
+				}
+
+				ZenTreasure_RandomPhoto.ALLOWED_PHOTO_IDS.Insert(photoID);
+			}
 		}
 
-		Print("[ZenTreasure] Loaded " + ZenTreasure_RandomPhoto.PHOTO_COUNT + " random photo types.");
+		Print("[ZenTreasure] Loaded " + ZenTreasure_RandomPhoto.ALLOWED_PHOTO_IDS.Count() + " random photo types.");
 		#endif
 	}
 

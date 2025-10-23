@@ -1,6 +1,6 @@
 class ZenTreasure_RandomPhoto extends ZenTreasure_PhotoBase
 {
-	static int PHOTO_COUNT = 0;
+	static ref array<int> ALLOWED_PHOTO_IDS = new array<int>;
 
 	override void EEInit()
 	{
@@ -14,7 +14,7 @@ class ZenTreasure_RandomPhoto extends ZenTreasure_PhotoBase
 	{
 		string spawnType = "ZenTreasure_Photo";
 
-		int rand = Math.RandomIntInclusive(1, PHOTO_COUNT);
+		int rand = ALLOWED_PHOTO_IDS.GetRandomElement();
 		if (rand < 10)
 		{
 			spawnType = spawnType + "0" + rand.ToString();

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\config.cpp||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:config.cpp||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\5_Mission\\#VanillaOverrides\\Mission\\MissionBase.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\5_Mission\\#VanillaOverrides\\Mission\\MissionBase.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,20 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "config.cpp",
               "DocumentMoniker": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\config.cpp",
               "RelativeDocumentMoniker": "config.cpp",
               "ToolTip": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\config.cpp",
               "RelativeToolTip": "config.cpp",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIcAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-27T02:33:33.519Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ZenTreasure_Triggers.c",
               "DocumentMoniker": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_Triggers.c",
               "RelativeDocumentMoniker": "scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_Triggers.c",
@@ -67,12 +67,11 @@
               "RelativeToolTip": "scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_Triggers.c",
               "ViewState": "AgIAADYAAAAAAAAAAAAAADQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-07-26T04:55:10.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-26T04:55:10.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MissionBase.c",
               "DocumentMoniker": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\5_Mission\\#VanillaOverrides\\Mission\\MissionBase.c",
               "RelativeDocumentMoniker": "scripts\\5_Mission\\#VanillaOverrides\\Mission\\MissionBase.c",
@@ -84,19 +83,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ActionZenReadPhoto.c",
               "DocumentMoniker": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c",
               "RelativeDocumentMoniker": "scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c",
               "ToolTip": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c",
               "RelativeToolTip": "scripts\\4_World\\Classes\\UserActionsComponent\\ZenMods\\Actions\\ZenTreasure\\ActionZenReadPhoto.c",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwBYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-07-23T11:20:30.654Z"
+              "WhenOpened": "2025-07-23T11:20:30.654Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ZenTreasure_PhotoBase.c",
               "DocumentMoniker": "P:\\ZenMods\\ZenTreasure\\ZenTreasureBase\\scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_PhotoBase.c",
               "RelativeDocumentMoniker": "scripts\\4_World\\Entities\\ZenMods\\ZenTreasure\\ZenTreasure_PhotoBase.c",

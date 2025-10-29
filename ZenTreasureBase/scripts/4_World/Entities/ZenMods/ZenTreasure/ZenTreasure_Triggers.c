@@ -32,6 +32,20 @@ class ZenTreasure_Triggers extends Managed
 		for (int i = m_Triggers.Count() - 1; i >= 0; i--)
 		{
 			ZenTreasure_StashTrigger existingTrigger = m_Triggers.Get(i);
+			if (!existingTrigger)
+			{
+				Error("Strange error: ZenTreasure_StashTrigger does not exist for index: " + i);
+				m_Triggers.Remove(i);
+				continue;
+			}
+
+			if (!existingTrigger.GetConfig().Position)
+			{
+				Error("Strange error: vector Position does not exist for index: " + i);
+				m_Triggers.Remove(i);
+				continue;
+			}
+
 			if (vector.Distance(existingTrigger.GetConfig().Position, cfg.Position) < 1)
 			{
 				existingTrigger.SetConfig(cfg);

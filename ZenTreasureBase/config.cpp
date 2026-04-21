@@ -1,12 +1,16 @@
-﻿class CfgPatches
+/*
+	(c) 2026 | ZenTreasureBase | Zenarchist
+*/
+
+class CfgPatches
 {
 	class ZenTreasureBase
 	{
-		requiredVersion = 0.1;
 		requiredAddons[] =
 		{
 			"DZ_Data",
-			"DZ_Scripts"
+			"DZ_Scripts",
+			"ZenModCore"
 		};
 	};
 };
@@ -15,58 +19,40 @@ class CfgMods
 {
 	class ZenTreasureBase
 	{
-		dir = "ZenTreasureBase";
-		name = "Zen's Treasure";
 		author = "Zenarchist";
-		credits = "";
-		version = "1.0";
 		type = "mod";
-		dependencies[] = 
-		{ 
-			"Game", 
-			"World", 
-			"Mission" 
+		version = "1.0";
+		storageVersion = 1; // CF storage
+		dependencies[]=
+		{
+			"Game",
+			"World",
+			"Mission"
 		};
 		class defs
 		{
-			class engineScriptModule
-			{
-				files[]=
-				{
-					"ZenTreasureBase/scripts/1_Core",
-					"ZenTreasureBase/scripts/Common"
-				};
-			};
-			class gameLibScriptModule
-			{
-				files[]=
-				{
-					"ZenTreasureBase/scripts/2_GameLib",
-					"ZenTreasureBase/scripts/Common"
-				};
-			};
 			class gameScriptModule
 			{
+				value = "";
 				files[] = 
 				{ 
-					"ZenTreasureBase/scripts/3_Game",
-					"ZenTreasureBase/scripts/Common"
+					"ZenTreasureBase/scripts/3_Game"
 				};
 			};
 			class worldScriptModule
 			{
+				value = "";
 				files[] = 
 				{ 
-					"ZenTreasureBase/scripts/4_World",
-					"ZenTreasureBase/scripts/Common"
+					"ZenTreasureBase/scripts/4_World"
 				};
 			};
 			class missionScriptModule
 			{
+				value = "";
 				files[] = 
 				{ 
-					"ZenTreasureBase/scripts/5_mission",
-					"ZenTreasureBase/scripts/common"
+					"ZenTreasureBase/scripts/5_Mission"
 				};
 			};
 		};

@@ -27,17 +27,17 @@ class ZenRandomAmmoBox : Box_Base
 		return ammoBoxes;
 	}
 
-	override void EOnInit(IEntity other, int extra)
+	override void DeferredInit()
 	{
-		super.EOnInit(other, extra);
+		super.DeferredInit();
 
 		if (g_Game.IsDedicatedServer())
-			g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ShapeshifterMorph, Math.RandomFloatInclusive(900, 1000), false);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenTreasureShapeshifterMorph, Math.RandomFloatInclusive(900, 1000), false);
 	}
 
-	private void ShapeshifterMorph()
+	private void ZenTreasureShapeshifterMorph()
 	{
-		GetInventory().ReplaceItemWithNew(InventoryMode.SERVER, new ReplaceItemWithNewLambda(this, GetAmmoBoxes().GetRandomElement(), NULL));
+		GetInventory().ReplaceItemWithNew(InventoryMode.SERVER, new ReplaceItemWithNewLambda(this, GetAmmoBoxes().GetRandomElement(), null));
 	}
 }
 

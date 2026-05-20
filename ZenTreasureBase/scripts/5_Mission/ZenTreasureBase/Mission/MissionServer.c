@@ -10,7 +10,9 @@ modded class MissionServer
 		#endif
 
 		GetZenTreasureConfig();
-		GetZenTreasure_Triggers().SpawnStartupTriggers();
+		
+		PluginZenTreasureTriggerManager stashPlugin = PluginZenTreasureTriggerManager.Cast(GetPlugin(PluginZenTreasureTriggerManager));
+		stashPlugin.SpawnStartupTriggers();
 
 		// Add map markers for debugging map treasure positions
 		if (GetZenTreasureConfig().DebugZenMapCompatibility)
@@ -47,11 +49,12 @@ modded class MissionServer
 							continue;
 					}
 					
-					ZenTreasureLocation loc;
+					ZenTreasureRandomLocations loc;
 					if (GetZenTreasureConfig().TreasureLocationOverrides.Find(cfg_name, loc))
 					{
-						x = loc.StashX;
-						z = loc.StashZ;
+						ZenTreasureLocationCoords randomCoords = loc.RandomLocations.GetRandomElement();
+						x = randomCoords.StashX;
+						z = randomCoords.StashZ;
 					}
 					else 
 					{

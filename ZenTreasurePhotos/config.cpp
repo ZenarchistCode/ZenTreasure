@@ -184,7 +184,7 @@ class CfgVehicles
 	class ZenTreasure_Photo19 : ZenTreasure_PhotoBase
 	{
 		scope = 2;
-		descriptionShort = "SEALs never reveal their secrets. But we're not a greedy bunch, we only take what we need. So in this case I'll make an exception. There's a secret stash buried in the north, near Jantar Lake. It's a cache of TREASURETYPE supplies. You'll find it underneath the treehouse built on the huge dead tree there. Good luck, civilian. You'll need it out here.";
+		descriptionShort = "SEALs never reveal their secrets. At least, not without a book deal. But we're not a greedy bunch, we only take what we need. So in this case I'll make an exception. There's a secret stash buried in the north, near Jantar Lake. It's a cache of TREASURETYPE supplies. You'll find it underneath the treehouse built on the huge dead tree there. Good luck, civilian. You'll need it out here.";
 		treasure_stash_x = 3376; // Jantar lake with treehouse
 		treasure_stash_z = 8913;
 		mapName = "enoch";
@@ -192,7 +192,7 @@ class CfgVehicles
 	class ZenTreasure_Photo20 : ZenTreasure_PhotoBase
 	{
 		scope = 2;
-		descriptionShort = "More than half of the town is already infected. The healthy either fled to the woods or are barricaded in houses. It's getting worse, I don't think there will be any help. Looks like it's time for me to head out into the wild and try my luck out there. If I don't survive, the least I can try to do is leave something behind for those who do somehow survive this madness. I buried some spare TREASURETYPE supplies in the bushes near my old green house by the fire station in Topolin. If you find this photograph, well, good luck my friend. Maybe we'll meet someday. Maybe.";
+		descriptionShort = "More than half of the town is already infected. The healthy either fled to the woods or are barricaded in houses. It's getting worse, I don't think there will be any help. Looks like it's time for me to head out into the wild and try my luck out there. If I don't survive, the least I can try to do is leave something behind for those who do somehow survive this madness. I buried some spare TREASURETYPE supplies in the bushes in the corner of the yard next to my old two-storey green house by the fire station in Topolin. If you find this photograph, well, good luck my friend. Maybe we'll meet someday. Maybe.";
 		treasure_stash_x = 1628; // Topolin red house
 		treasure_stash_z = 7388;
 		mapName = "enoch";
@@ -354,7 +354,7 @@ class CfgVehicles
 	class ZenTreasure_Photo40 : ZenTreasure_PhotoBase
 	{
 		scope = 2;
-		descriptionShort = "I came to the cliffs to be alone. Long before the dead rose, I was already done with people. But now they come crawling - the living and the other kind. I'm moving on. I buried my TREASURETYPE gear beneath a lone tree far in the northern mountains, where the wind howls and no footsteps echo. If you found this, maybe the world dragged you up here too. Take what you need. I have no use for it anymore.";
+		descriptionShort = "I came to the cliffs to be alone. Long before the dead rose, I was already done with people. But now they come crawling - the living and the other kind. I'm moving on. I buried my TREASURETYPE gear beneath a lone tree beside a small bush on a cliff-face far in the northern mountains, where the wind howls and no footsteps echo. If you found this, maybe the world dragged you up here too. Take what you need. I have no use for it anymore.";
 		treasure_stash_x = 6051.155273;  // Northern cliffs
 		treasure_stash_z = 14745.204102;
 		mapName = "chernarusplus";

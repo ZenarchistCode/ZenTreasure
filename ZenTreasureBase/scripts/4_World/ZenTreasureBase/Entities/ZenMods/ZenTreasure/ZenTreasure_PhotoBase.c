@@ -126,11 +126,12 @@ class ZenTreasure_PhotoBase extends ItemBase
 		
 		float x, y, z;
 		
-		ZenTreasureLocation loc;
+		ZenTreasureRandomLocations loc;
 		if (GetZenTreasureConfig().TreasureLocationOverrides.Find(GetType(), loc))
 		{
-			x = loc.StashX;
-			z = loc.StashZ;
+			ZenTreasureLocationCoords randomCoords = loc.RandomLocations.GetRandomElement();
+			x = randomCoords.StashX;
+			z = randomCoords.StashZ;
 		}
 		else 
 		{
@@ -267,8 +268,8 @@ class ZenTreasure_PhotoBase extends ItemBase
 		}
 
 		float x = m_StashPosition[0];
-		float y = m_StashPosition[0];
-		float z = m_StashPosition[0];
+		float y = m_StashPosition[1];
+		float z = m_StashPosition[2];
 
 		if (x < 0 || y < 0 || z < 0)
 		{
@@ -276,7 +277,9 @@ class ZenTreasure_PhotoBase extends ItemBase
 			return;
 		}
 
-		GetZenTreasure_Triggers().SpawnTrigger(GetZenTreasureDB().AddTreasureTrigger(m_StashPosition, player.GetCachedID(), m_ZenStashType), player);
+		PluginZenTreasureTriggerManager stashPlugin = PluginZenTreasureTriggerManager.Cast(GetPlugin(PluginZenTreasureTriggerManager));
+		stashPlugin.SpawnTrigger(GetZenTreasureDB().AddTreasureTrigger(m_StashPosition, player.GetCachedID(), m_ZenStashType), player);
+		
 		ZMPrint("[ZenTreasure] " + player.GetCachedID() + " spawned treasure stash TRIGGER @ " + m_StashPosition + " with config " + treasureConfig.ConfigName);
 	
 		SetStashCreatorID(player.GetIdentity().GetPlainId());

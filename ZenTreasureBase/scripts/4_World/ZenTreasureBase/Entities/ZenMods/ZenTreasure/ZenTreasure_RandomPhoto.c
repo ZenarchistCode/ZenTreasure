@@ -2,15 +2,15 @@ class ZenTreasure_RandomPhoto extends ZenTreasure_PhotoBase
 {
 	static ref array<int> ALLOWED_PHOTO_IDS = new array<int>;
 
-	override void EEInit()
+	override void DeferredInit()
 	{
-		super.EEInit();
+		super.DeferredInit();
 
 		if (g_Game.IsDedicatedServer())
-			g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(ShapeshifterMorph, 1000, false);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZenTreasureShapeshifterMorph, Math.RandomFloatInclusive(900, 1000), false);
 	}
 
-	private void ShapeshifterMorph()
+	private void ZenTreasureShapeshifterMorph()
 	{
 		string spawnType = "ZenTreasure_Photo";
 

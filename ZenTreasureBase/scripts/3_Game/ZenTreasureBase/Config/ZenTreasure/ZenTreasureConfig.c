@@ -22,7 +22,7 @@ class ZenTreasureConfig: ZenConfigBase
 		g_ZenTreasureConfig = this;
 	}
 	
-	override string    	GetCurrentVersion()   		{ return "1.29.2"; }
+	override string    	GetCurrentVersion()   		{ return "1.29.4"; }
 	override bool		ShouldLoadOnServer() 		{ return true; }
 	override bool 		IsServerOnlyConfig()		{ return true; }
 	
@@ -42,13 +42,14 @@ class ZenTreasureConfig: ZenConfigBase
 	int DebugAlwaysSpawnStashID;
 	int TreasureTriggerPersistenceSecs;
 	int TreasureStashPersistenceSecs;
+	float TreasureStashSpawnTriggerDistance;
 	bool UseWinterPhotoTexture;
 	float SpawnPhotosOnZombiesChance;
 	ref array<int> SkipSpawnableRandomPhotosID;
 	ref array<string> SkipSpawnableRandomPhotosMap;
 	ref array<ref ZenTreasurePredefinedType> PredefinedTypes;
 	ref array<ref ZenTreasureStashType>	TreasureTypes;
-	ref map<string, ref ZenTreasureLocation> TreasureLocationOverrides;
+	ref map<string, ref ZenTreasureRandomLocations> TreasureLocationOverrides;
 	
 	[NonSerialized()]
 	static ref array<string> TreasureDescriptions = new array<string>;
@@ -60,14 +61,15 @@ class ZenTreasureConfig: ZenConfigBase
 		DebugAlwaysSpawnStashID = -1;
 		TreasureTriggerPersistenceSecs = 604800 * 2; // 2 weeks before trigger config is deleted
 		TreasureStashPersistenceSecs = 3600; // 1 hour, after player enters trigger & spawns stash.
+		TreasureStashSpawnTriggerDistance = 50;
 		UseWinterPhotoTexture = false;
 		SpawnPhotosOnZombiesChance = 0.01;
 		SkipSpawnableRandomPhotosID = new array<int>;
 		SkipSpawnableRandomPhotosMap = new array<string>;
 		PredefinedTypes	= new array<ref ZenTreasurePredefinedType>;
 		TreasureTypes = new array<ref ZenTreasureStashType>;
-		TreasureLocationOverrides = new map<string, ref ZenTreasureLocation>;
-		TreasureLocationOverrides.Insert("ZenTreasure_PhotoXXXX", new ZenTreasureLocation(4902.394531, 2619.710205));
+		TreasureLocationOverrides = new map<string, ref ZenTreasureRandomLocations>;
+		TreasureLocationOverrides.Insert("ZenTreasure_PhotoXXXX", new ZenTreasureRandomLocations(4902.394531, 2619.710205));
 		
 		SkipSpawnableRandomPhotosID.Insert(-1);
 		SkipSpawnableRandomPhotosMap.Insert("mapName");
@@ -314,12 +316,22 @@ class ZenTreasureStashType
 	}
 }
 
-class ZenTreasureLocation 
+class ZenTreasureRandomLocations
+{
+	ref array<ref ZenTreasureLocationCoords> RandomLocations = new array<ref ZenTreasureLocationCoords>;
+	
+	void ZenTreasureRandomLocations(float x, float z)
+	{
+		RandomLocations.Insert(new ZenTreasureLocationCoords(x, z));
+	}
+}
+
+class ZenTreasureLocationCoords
 {
 	float StashX;
 	float StashZ;
 	
-	void ZenTreasureLocation(float x, float z)
+	void ZenTreasureLocationCoords(float x, float z)
 	{
 		StashX = x;
 		StashZ = z;

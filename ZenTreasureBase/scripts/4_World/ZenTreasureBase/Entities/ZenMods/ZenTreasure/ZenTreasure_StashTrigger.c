@@ -183,7 +183,7 @@ class ZenTreasure_StashTrigger extends ManTrigger
 		}
 
 		float heightOffset = 0.24;
-		UndergroundStash stash = UndergroundStash.Cast(g_Game.CreateObject("ZenTreasure_UndergroundStash", m_TreasureConfig.Position, ECE_PLACE_ON_SURFACE));
+		UndergroundStash stash = UndergroundStash.Cast(g_Game.CreateObjectEx("ZenTreasure_UndergroundStash", m_TreasureConfig.Position, ECE_PLACE_ON_SURFACE));
 
 		if (!stash)
 		{
